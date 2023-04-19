@@ -1,7 +1,9 @@
-import MessageListItem from '../components/MessageListItem';
-import { useState } from 'react';
-import { Message, getMessages } from '../data/messages';
+import RatingListItem from "../components/RatingListItem";
+import { useState } from "react";
+import { Rating, getRatings } from "../data/ratings";
 import {
+  IonActionSheet,
+  IonButton,
   IonContent,
   IonHeader,
   IonList,
@@ -10,17 +12,17 @@ import {
   IonRefresherContent,
   IonTitle,
   IonToolbar,
-  useIonViewWillEnter
-} from '@ionic/react';
-import './Home.css';
+  useIonViewWillEnter,
+} from "@ionic/react";
+import "./Home.css";
+import AddRatingForm from "../components/AddRatingForm";
 
 const Home: React.FC = () => {
-
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [ratings, setRatings] = useState<Rating[]>([]);
 
   useIonViewWillEnter(() => {
-    const msgs = getMessages();
-    setMessages(msgs);
+    const msgs = getRatings();
+    setRatings(msgs);
   });
 
   const refresh = (e: CustomEvent) => {
@@ -33,7 +35,8 @@ const Home: React.FC = () => {
     <IonPage id="home-page">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Inbox</IonTitle>
+          <IonTitle>Ratings</IonTitle>
+          <AddRatingForm />
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -43,14 +46,14 @@ const Home: React.FC = () => {
 
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">
-              Inbox
-            </IonTitle>
+            <IonTitle size="large">Ratings</IonTitle>
           </IonToolbar>
         </IonHeader>
 
         <IonList>
-          {messages.map(m => <MessageListItem key={m.id} message={m} />)}
+          {ratings.map((m) => (
+            <RatingListItem key={m.id} rating={m} />
+          ))}
         </IonList>
       </IonContent>
     </IonPage>

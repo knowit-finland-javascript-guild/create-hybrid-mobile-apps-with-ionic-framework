@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'To-do app',
+  appName: 'ScreenScore app',
   webDir: 'build',
   bundledWebRuntime: false
 };

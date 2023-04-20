@@ -2,53 +2,55 @@ import React, { useState } from "react";
 import {
   IonButton,
   IonInput,
-  IonActionSheet,
   IonItem,
   IonLabel,
   IonTextarea,
-  IonList,
   IonPopover,
   IonContent,
   IonText,
+  IonButtons,
+  IonModal,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
 } from "@ionic/react";
-import { Rating, addRating, getRatings } from "../data/ratings";
 import { useForm } from "react-hook-form";
+import "./AddRatingForm.css";
 
-type InputProps = {
-  name: string;
-  label: string;
-  component: JSX.Element;
+export type FormData = {
+  title: string;
+  score: number;
+  review: string;
 };
 
-const AddRatingForm: React.FC = () => {
-  const [newRating, setNewRating] = useState<Rating>({
-    title: "",
-    score: 0,
-    headline: "",
-    review: "",
-    id: getRatings().length,
-  });
+interface AddRatingFormProps {
+  onSubmit: (data: FormData) => void;
+}
 
-  const { register, handleSubmit, formState } = useForm<Rating>();
+const AddRatingForm: React.FC<AddRatingFormProps> = ({ onSubmit }) => {
+  const { register, handleSubmit, formState } = useForm<FormData>();
 
-  const onSubmit = (data: Rating) => {
-    console.log(data);
-    setNewRating(data);
-  };
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <>
-      <IonButton id="open-form">Add new rating</IonButton>
-      <IonPopover trigger="open-form" triggerAction="click">
-        <IonContent class="ion-padding">
+    <IonButtons slot="end">
+      <IonButton onClick={() => setIsOpen(true)}>Add new rating</IonButton>
+
+      <IonModal isOpen={isOpen}>
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Add a new rating</IonTitle>
+            <IonButtons slot="start">
+              <IonButton onClick={() => setIsOpen(false)}>Close</IonButton>
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent className="ion-padding">
           <form onSubmit={handleSubmit(onSubmit)}>
             <IonItem>
-              <IonLabel position="floating">Title</IonLabel>
+              <IonLabel position="stacked">Title</IonLabel>
               <IonInput
                 type="text"
-                value={newRating.title}
-                onIonChange={(e) =>
-                  setNewRating({ ...newRating, title: e.detail.value!.toString() })
-                }
                 {...register("title", { required: true })}
               />
             </IonItem>
@@ -56,13 +58,12 @@ const AddRatingForm: React.FC = () => {
               <IonText color="danger">Please enter a title.</IonText>
             )}
             <IonItem>
-              <IonLabel position="floating">Score</IonLabel>
+              <IonLabel position="stacked">Score</IonLabel>
               <IonInput
                 type="number"
-                value={newRating.score}
-                onIonChange={(e) =>
-                  setNewRating({ ...newRating, score: +e.detail.value! })
-                }
+                min={0}
+                max={5}
+                step="0.1"
                 {...register("score", { required: true })}
               />
             </IonItem>
@@ -70,45 +71,22 @@ const AddRatingForm: React.FC = () => {
               <IonText color="danger">Please enter a score.</IonText>
             )}
             <IonItem>
-              <IonLabel position="floating">Headline</IonLabel>
-              <IonInput
-                type="text"
-                value={newRating.headline}
-                onIonChange={(e) =>
-                  setNewRating({ ...newRating, headline: e.detail.value!.toString()  })
-                }
-                {...register("headline", { required: true })}
-              />
-            </IonItem>
-            {formState.errors.headline && (
-              <IonText color="danger">Please enter a headline.</IonText>
-            )}
-            <IonItem>
-              <IonLabel position="floating">Review</IonLabel>
-              <IonTextarea
-                value={newRating.review}
-                onIonChange={(e) =>
-                  setNewRating({ ...newRating, review: e.detail.value! })
-                }
+              <textarea
+                placeholder="Write a review"
                 {...register("review", { required: true })}
+                className="custom-textarea"
               />
             </IonItem>
-            {formState.errors.review && (
-              <IonText color="danger">Please enter a review.</IonText>
-            )}
-
-            <IonButton
-              expand="block"
-              type="submit"
-              className="ion-margin-top"
-              disabled={!formState.isValid}
-            >
+            <IonButton type="reset" fill="outline">
+              Clear
+            </IonButton>
+            <IonButton type="submit" disabled={!formState.isValid}>
               Save
             </IonButton>
           </form>
         </IonContent>
-      </IonPopover>
-    </>
+      </IonModal>
+    </IonButtons>
   );
 };
 

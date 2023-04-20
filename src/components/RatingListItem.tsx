@@ -16,7 +16,6 @@ const RatingListItem: React.FC<RatingListItemProps> = ({ rating }) => {
             <IonNote>{rating.score}</IonNote>
           </span>
         </h2>
-        <h3>{rating.headline}</h3>
       </IonLabel>
     </IonItem>
   );

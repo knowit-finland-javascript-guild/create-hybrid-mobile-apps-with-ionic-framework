@@ -39,7 +39,6 @@ function ViewRating() {
             <span className="score">
               <IonNote>{rating.score} / 5</IonNote>
             </span>
-            <h2>{rating.headline}</h2>
             <p>{rating.review}</p>
           </div>
         ) : (

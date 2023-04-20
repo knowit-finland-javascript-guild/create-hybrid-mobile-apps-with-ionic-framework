@@ -2,7 +2,6 @@ export interface Rating {
   id: number;
   title: string;
   score: number;
-  headline: string;
   review: string;
 }
 
@@ -11,7 +10,6 @@ const ratings: Rating[] = [
     id: 0,
     title: "John Wick: Chapter 4",
     score: 4.3,
-    headline: "Maybe the best John Wick movie",
     review:
       "The stunts and choreography are beyond impressive. Every artist involved does their job to perfection. Donnie Yen's performance is unbelievable. Not only does he fight great, but he also has to move like a blind man. Keanu Reeves is also very impressive. Keanu IS John Wick. Although there are a few scenes where his enemies stand by and wait for their turn to attack, it's easy to overlook because everything else is so great.",
   },
@@ -19,7 +17,6 @@ const ratings: Rating[] = [
     id: 1,
     title: "The Matrix Resurrections",
     score: 3.8,
-    headline: "A solid addition to the Matrix franchise",
     review:
       "The Matrix Resurrections is a decent addition to the franchise, but it doesn't quite reach the heights of the original trilogy. Keanu Reeves is still great as Neo, but some of the new characters fall flat. The action scenes are well done, but the story is a bit convoluted at times.",
   },
@@ -27,7 +24,6 @@ const ratings: Rating[] = [
     id: 2,
     title: "Spider-Man: No Way Home",
     score: 4.5,
-    headline: "The ultimate Spider-Man movie",
     review:
       "Spider-Man: No Way Home is everything fans could have hoped for and more. The action scenes are spectacular, the story is emotional and engaging, and the return of past Spider-Man actors is handled perfectly. Tom Holland continues to impress as Spider-Man, and the supporting cast is great as well. This is a must-see for any Spider-Man fan.",
   },
@@ -36,7 +32,6 @@ const ratings: Rating[] = [
     id: 0,
     title: "Stranger Things",
     score: 4.6,
-    headline: "A thrilling and nostalgic ride",
     review:
       "Stranger Things is an amazing show that blends horror, sci-fi, and nostalgia into a perfect package. The young cast is incredibly talented, and the adult actors are great as well. The story is engaging and keeps you on the edge of your seat. This is a must-watch for any fan of 80s culture.",
   },
@@ -44,7 +39,6 @@ const ratings: Rating[] = [
     id: 1,
     title: "Game of Thrones",
     score: 4.2,
-    headline: "A classic epic fantasy",
     review:
       "Game of Thrones is a classic epic fantasy that captivated audiences for years. The cast is amazing, and the production values are top-notch. The story is complex and engaging, with plenty of twists and turns. However, the final season was a bit of a letdown, and some fans were disappointed with the ending.",
   },
@@ -52,7 +46,6 @@ const ratings: Rating[] = [
     id: 2,
     title: "Breaking Bad",
     score: 4.8,
-    headline: "A masterpiece of television",
     review:
       "Breaking Bad is a masterpiece of television. Bryan Cranston gives a career-defining performance as Walter White, and the supporting cast is amazing as well. The story is engaging and keeps you on the edge of your seat. This is a must-watch for anyone who loves great TV.",
   },
@@ -62,4 +55,7 @@ export const getRatings = () => ratings;
 
 export const getRating = (id: number) => ratings.find((m) => m.id === id);
 
-export const addRating = (rating: Rating) => ratings.push(rating);
+export const addRating = (rating: Rating) => {
+  ratings.push(rating);
+  console.log(ratings);
+};

@@ -35,9 +35,6 @@ const App: React.FC = () => (
         <Route path="/home" exact={true}>
           <Home />
         </Route>
-        <Route path="/rating/:id">
-           <ViewRating />
-        </Route>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

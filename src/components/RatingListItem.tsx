@@ -8,7 +8,7 @@ interface RatingListItemProps {
 
 const RatingListItem: React.FC<RatingListItemProps> = ({ rating }) => {
   return (
-    <IonItem routerLink={`/rating/${rating.id}`} lines="full">
+    <IonItem lines="full">
       <IonLabel>
         <h2>
           {rating.title}

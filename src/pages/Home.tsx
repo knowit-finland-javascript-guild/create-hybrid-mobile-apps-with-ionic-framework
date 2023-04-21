@@ -2,6 +2,7 @@ import RatingListItem from "../components/RatingListItem";
 import { useState } from "react";
 import { Rating, ratings, updateRatings } from "../data/ratings";
 import {
+  IonButton,
   IonContent,
   IonHeader,
   IonList,
@@ -25,11 +26,24 @@ const Home: React.FC = () => {
     setRatings(ratings);
   };
 
+  //Extra
+  const sortByTitle = () => {
+    const sorted = [...allRatings].sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
+    setRatings(sorted);
+  };
+
+  const sortByScore = () => {
+    const sorted = [...allRatings].sort((a, b) => b.score - a.score);
+    setRatings(sorted);
+  };
+
   return (
     <IonPage id="home-page">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Ratings</IonTitle>
+          <IonTitle>ScreenScore</IonTitle>
           <AddRatingForm onSubmit={onSubmit} />
         </IonToolbar>
       </IonHeader>

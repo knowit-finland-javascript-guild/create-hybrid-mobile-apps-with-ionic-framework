@@ -7,6 +7,7 @@ import {
   IonHeader,
   IonNote,
   IonPage,
+  IonTitle,
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
@@ -26,9 +27,8 @@ function ViewRating() {
     <IonPage id="view-rating-page">
       <IonHeader translucent>
         <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton text="Ratings" defaultHref="/home"></IonBackButton>
-          </IonButtons>
+          {/* Add here IonBackButton */}
+          <IonTitle>ScreenScore</IonTitle>
         </IonToolbar>
       </IonHeader>
 

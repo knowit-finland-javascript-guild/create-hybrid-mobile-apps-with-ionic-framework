@@ -5,7 +5,7 @@ export interface Rating {
   review: string;
 }
 
-const ratings: Rating[] = [
+export var ratings: Rating[] = [
   {
     id: 0,
     title: "John Wick: Chapter 4",
@@ -29,21 +29,21 @@ const ratings: Rating[] = [
   },
 
   {
-    id: 0,
+    id: 3,
     title: "Stranger Things",
     score: 4.6,
     review:
       "Stranger Things is an amazing show that blends horror, sci-fi, and nostalgia into a perfect package. The young cast is incredibly talented, and the adult actors are great as well. The story is engaging and keeps you on the edge of your seat. This is a must-watch for any fan of 80s culture.",
   },
   {
-    id: 1,
+    id: 4,
     title: "Game of Thrones",
     score: 4.2,
     review:
       "Game of Thrones is a classic epic fantasy that captivated audiences for years. The cast is amazing, and the production values are top-notch. The story is complex and engaging, with plenty of twists and turns. However, the final season was a bit of a letdown, and some fans were disappointed with the ending.",
   },
   {
-    id: 2,
+    id: 5,
     title: "Breaking Bad",
     score: 4.8,
     review:
@@ -51,11 +51,6 @@ const ratings: Rating[] = [
   },
 ];
 
-export const getRatings = () => ratings;
-
 export const getRating = (id: number) => ratings.find((m) => m.id === id);
 
-export const addRating = (rating: Rating) => {
-  ratings.push(rating);
-  console.log(ratings);
-};
+export const updateRatings = (newRatings: Rating[]) => (ratings = newRatings);

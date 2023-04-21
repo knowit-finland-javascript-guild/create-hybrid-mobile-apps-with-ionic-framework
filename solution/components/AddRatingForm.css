@@ -1,0 +1,9 @@
+.custom-textarea {
+  height: 160px;
+  width: 100%;
+  display: flex;
+}
+
+.wide-popover {
+  --width: 90vw;
+}

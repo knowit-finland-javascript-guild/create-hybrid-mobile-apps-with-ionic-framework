@@ -65,8 +65,78 @@ Note: If you encounter any issues running your app, try running `ionic capacitor
 Note: If you encounter any issues running your app, try running `ionic capacitor sync ios` to sync your iOS app.
 
 
+# Excercises
+Currently there is only app that list ratings from the sample data.
+## Adding new ratings
+Lets add form using Ionic and react-hook-form to add new ratings.
+1. Modal
+Go to file "AddRatingForm.tsx" and add there [IonModal](https://ionicframework.com/docs/api/modal) that opens when the button is clicked.
+Add modal:
+Header, Toolbar IonTittle "Add a new rating", and IonButton "Close" that sets the isOpen to false.
+Also add IonContent.
+Take example from this: https://stackblitz.com/edit/angular-pfw55s?file=src%2Fmain.tsx
+2. Form inputs
+Here is base for the form:
+       ``
+       <form onSubmit={handleSubmit(submitForm)}>
+            <IonItem>
+              <IonInput
+                label="Title"
+                labelPlacement="stacked"
+                type="text"
+                {...register("title", { required: true })}
+              />
+            </IonItem>
+            {/* Add Score input here */}
+            <IonItem>
+              <textarea
+                placeholder="Write a review"
+                {...register("review", { required: true })}
+                className="custom-textarea"
+              />
+            </IonItem>
+            <IonButton type="submit" disabled={!formState.isValid}>
+              Save
+            </IonButton>
+          </form>       
+       ``
+This form is missing input for the score. Create this using [IonInput](https://ionicframework.com/docs/api/input). Take example from title input.
+
+Score input should have type "number". Add also min=0 and max=5 values and step="0.1" [step](https://ionicframework.com/docs/api/input#step). (Note that register name should be "score")
+Add IonLabel for the score input.
+## View a rating
+Go to file App.tsx. Add there route for path "/rating/:id", containing component ViewRating.
+
+Add Router link to raiting items listed in the Home page. Note that the Item component in the RatingListItem.tsx file. You can give IonItem a property "routerLink":
+routerLink={`/rating/${rating.id}`}
+
+Now you should be able to click rating items in the Home page and you are directed to a rating page.
+
+It is not very easy to back to Home page currently if we use mobile,so to fix this add IonBackButton in VieWRating.tsx -file, same way that in this example: https://stackblitz.com/run?file=src%2Fpage-two.tsx
 
 
+# Extra Excercises
+## Sort
+Add to Home page buttons that use would use sortByTitle and sortByScore, to sort the 
+If you have time try to make the buttons look better using Ionic API https://ionicframework.com/docs/api/button
+
+## Theme
+Navigate to theme folder and change the --ion-color-primary.
+Then add to Home.css:
+``
+#home-page ion-title {
+    color: var(--ion-color-primary);
+    font-size: large;
+}
+``
+
+
+If you get stuck ask help or you can look solutions in the solution folder.
+At the end the App should look somethig like this:
+
+<img src="https://user-images.githubusercontent.com/16801415/233607926-6053f850-a3c7-45ad-8863-aafd9c3588cf.png" height="500"><img src="https://user-images.githubusercontent.com/16801415/233607874-2382b10c-19ff-411f-b092-245eba4028e9.png" height="500"><img src="https://user-images.githubusercontent.com/16801415/233607805-32a555a2-0054-40f2-975c-f18d01cb5bb9.png" height="500">
+
+Note that this might look different with ios and android.
 ## How to Create a New Project with Ionic
 
 1. To create a new project, run the command ``ionic start``.

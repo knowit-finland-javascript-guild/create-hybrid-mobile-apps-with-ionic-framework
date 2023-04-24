@@ -2,6 +2,8 @@
 
 # Ionic React ScreenScore App
 
+Thank you for participating in this workshop! As part of my master thesis, I have created a survey to collect feedback on the workshop and the Ionic framework. I would be grateful if you could take a few minutes to complete the survey after you have finished the workshop exercises and any other related tasks. 
+[Survey](https://forms.office.com/Pages/ResponsePage.aspx?id=nJI1Z7-dO0efxl-9zSyfxNTaqbpUJNVEk7M4YjQLI45UNU9WSk8wVVlFTjVXRUcxQUJTRFo2SlNMRy4u)
 
 ## Getting started
 To begin, follow these steps:
@@ -12,7 +14,7 @@ To begin, follow these steps:
 
     (Check if installed with ``ionic -v``)
 
-2. Clone this Git repository, go to the project folder, and run `npm install`.
+2. Clone this Git repository, go to the project folder, and run `npm install`. (If you don't want to use React you can follow these tutorial for Angular and Vue: [Build your first APP](https://ionicframework.com/docs/intro/next#build-your-first-app))
 
 3. Start the development server by running the following command:
 
@@ -137,11 +139,16 @@ Then add to Home.css:
 ``
 Look how the app looks now.
 
+Don't forget to take [the survey](https://forms.office.com/Pages/ResponsePage.aspx?id=nJI1Z7-dO0efxl-9zSyfxNTaqbpUJNVEk7M4YjQLI45UNU9WSk8wVVlFTjVXRUcxQUJTRFo2SlNMRy4u)!
+
 Once you have completed these exercises, the App should look something like this:
 
 <img src="https://user-images.githubusercontent.com/16801415/233607926-6053f850-a3c7-45ad-8863-aafd9c3588cf.png" height="500"> <img src="https://user-images.githubusercontent.com/16801415/233607874-2382b10c-19ff-411f-b092-245eba4028e9.png" height="500"> <img src="https://user-images.githubusercontent.com/16801415/233607805-32a555a2-0054-40f2-975c-f18d01cb5bb9.png" height="500">
 
 Note that this might look different with iOS and Android.
+
+If you want to take your Ionic skills to the next level, I encourage you to try creating your own app using the instructions below. Good luck!
+
 ## How to Create a New Project with Ionic
 
 1. To create a new project, run the command ``ionic start``.

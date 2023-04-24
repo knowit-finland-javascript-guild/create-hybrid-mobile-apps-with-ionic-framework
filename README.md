@@ -10,17 +10,17 @@ To begin, follow these steps:
 
     ``npm install -g @ionic/cli``
 
-    (Check if intalled with ``ionic -v``)
+    (Check if installed with ``ionic -v``)
 
-2. Clone this Git repository and run `npm install`.
+2. Clone this Git repository, go to the project folder, and run `npm install`.
 
-3. Start the development server by running the following command in your terminal:
+3. Start the development server by running the following command:
 
-    `ionic serve`
+  `ionic serve`
 
 4. Open http://localhost:8100 in your web browser to view your app.
 
-5. If you want to use your browser to code, we recommend using the device emulation mode. Press F12 and then Toggle device emulation (Ctrl + Shift + M) and choose an emulated phone device.
+5. If you want to use your browser to code, we recommend using the device emulation mode. Press F12 and then Toggle device emulation (Ctrl + Shift + M or Cmd + Opt + M) and choose an emulated phone device.
 
 ![image](https://user-images.githubusercontent.com/16801415/230067428-53aa32a9-10d6-4d04-afd0-34d96a3ff293.png)
 
@@ -38,7 +38,7 @@ To begin, follow these steps:
 
     Android Studio should open. 
 
-4. After the Gradle build is ready, press "Run 'app'" in the Android studio. You need to have a emulated device and the correct app selected.
+4. Press "Run 'app'" in the Android studio after the Gradle build is ready. You need to have an emulated device and the correct app selected.
 
  ![image](https://user-images.githubusercontent.com/16801415/230074674-ae1b2214-ea91-4be2-874d-7bd59835664f.png)
 
@@ -51,7 +51,7 @@ Note: If you encounter any issues running your app, try running `ionic capacitor
 
 ## iOS build (optional)
 
-1. Xcode must be installed, and for this you need to have a mac laptop
+1. Xcode must be installed, and for this, you need to have a Mac laptop
 
 2. Add the iOS platform to your Ionic project by running the following commands in your project directory:
 
@@ -70,12 +70,12 @@ This is an app called ScreenScore, where you can browse and add ratings for all 
 ## 1. Adding new ratings
 To add a form for adding new ratings, follow these steps:
 1. Add an IonModal
-Go to file "AddRatingForm.tsx" and add there [IonModal](https://ionicframework.com/docs/api/modal) that opens when the button is clicked.
-2. Take example from this: https://stackblitz.com/edit/angular-pfw55s?file=src%2Fmain.tsx
-Add the following components to the modal:
+
+Take an example from this: https://stackblitz.com/edit/angular-pfw55s?file=src%2Fmain.tsx.
+Go to file "AddRatingForm.tsx" and add there [IonModal](https://ionicframework.com/docs/api/modal) that opens when the button is clicked. Add the following components to the modal:
 Header, Toolbar, IonTittle "Add a new rating", IonButton "Close" that sets the isOpen to false, and IonContent.
 
-3. Add a form to save new ratings
+2. Add a form to save new ratings
 
 Now, let's create a form using Ionic and React Hook Form to add new ratings to our app. Here's the base for the form:
 
@@ -103,19 +103,19 @@ Now, let's create a form using Ionic and React Hook Form to add new ratings to o
           </form>       
 ```
 
-This form is missing input for the score. Create this input using [IonInput](https://ionicframework.com/docs/api/input). Take example from title input.
+This form is missing input for the score. Create this input using [IonInput](https://ionicframework.com/docs/api/input). Take an example from title input.
 
-Score input should have  type "number", and add min=0 and max=5 attributes. Also add a step="0.1" to be able to use decimals. [Step](https://ionicframework.com/docs/api/input#step). 
+Score input should have type "number", and add min=0 and max=5 attributes. Also, add a step="0.1" to be able to use decimals. [Step](https://ionicframework.com/docs/api/input#step). 
 
-(Note that register name should be "score")
+(Note that the register name should be "score")
 
 ## 2. View a rating
-1. Go to file App.tsx. Add there route for path "/rating/:id", containing component ViewRating. Take example from the home-path.
+1. Go to file App.tsx and add a route for path "/rating/:id", containing component ViewRating. Take an example from the home-path.
 https://ionicframework.com/docs/react/navigation#ionreactrouter
 
 2. In the RatingListItem.tsx file, add to the IonItem component a "routerLink" property with the value /rating/${rating.id}. This will create a link to the rating page.
 
-Now you should be able to click rating items in the Home page and you are directed to a rating page.
+Now you should be able to click rating items on the Home page, and you will be directed to a rating page.
 
 3. To make it easy to navigate back to the Home page, add an IonBackButton component to the ViewRating.tsx file. Follow this example:
 [IonBackButton](https://ionicframework.com/docs/api/back-button#basic-usage) (Select React and src/page-two.tsx)
@@ -127,7 +127,7 @@ If you have extra time, try adding the following features to the app:
 Add buttons to the Home page that allow users to sort the ratings by title or score. You can use the sortByTitle and sortByScore functions for this. To make the buttons look better, test different styles from the Ionic API to them. https://ionicframework.com/docs/api/button
 
 ## Theme
-Navigate to theme folder and change the --ion-color-primary. 
+Navigate to the theme folder and change the --ion-color-primary. 
 Then add to Home.css:
 ``
 #home-page ion-title {
@@ -148,7 +148,7 @@ Note that this might look different with iOS and Android.
 
     (Alternatively, you can use the command ``ionic start ScreenScore list --type=react --capacitor``, to skip steps 2-5. [Learn how to use this command](https://ionicframework.com/docs/cli/commands/start) )
 
-2. When the Ionic CLI asks "Use the app creation wizard?", select "n", if you want to use the CLI to create your project. Note that to use Ionic's wizard, you need to have or create an Ionic account.
+2. When the Ionic CLI asks, "Use the app creation wizard?" select "n" if you want to use the CLI to create your project. Note that you need to have or create an Ionic account to use Ionic's wizard.
 
 ![image](https://user-images.githubusercontent.com/16801415/230063847-f699f107-b445-4a33-b049-53b4cfad13c8.png)
 

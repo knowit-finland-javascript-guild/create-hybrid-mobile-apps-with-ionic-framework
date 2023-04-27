@@ -14,7 +14,7 @@ To begin, follow these steps:
 
     (Check if installed with ``ionic -v``)
 
-2. Clone this Git repository, go to the project folder `cd .\create-hybrid-mobile-apps-with-ionic-framework\`, and run `npm install`. (If you don't want to use React you can follow these tutorial for Angular and Vue: [Build your first APP](https://ionicframework.com/docs/intro/next#build-your-first-app))
+2. Clone this Git repository, go to the project folder `cd .\create-hybrid-mobile-apps-with-ionic-framework\`, and run `npm install`. (If you don't want to use React you can follow one of these tutorials for Angular and Vue: [Build your first APP](https://ionicframework.com/docs/intro/next#build-your-first-app))
 
 3. Start the development server by running the following command:
 

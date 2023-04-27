@@ -14,7 +14,7 @@ To begin, follow these steps:
 
     (Check if installed with ``ionic -v``)
 
-2. Clone this Git repository, go to the project folder, and run `npm install`. (If you don't want to use React you can follow these tutorial for Angular and Vue: [Build your first APP](https://ionicframework.com/docs/intro/next#build-your-first-app))
+2. Clone this Git repository, go to the project folder `cd .\create-hybrid-mobile-apps-with-ionic-framework\`, and run `npm install`. (If you don't want to use React you can follow these tutorial for Angular and Vue: [Build your first APP](https://ionicframework.com/docs/intro/next#build-your-first-app))
 
 3. Start the development server by running the following command:
 
@@ -27,7 +27,6 @@ To begin, follow these steps:
 ![image](https://user-images.githubusercontent.com/16801415/230067428-53aa32a9-10d6-4d04-afd0-34d96a3ff293.png)
 
 
-
 ## Android build (optional)
 
  1. First, ensure that you have the Android Studio installed.
@@ -35,10 +34,12 @@ To begin, follow these steps:
  2. Add the Android platform to your Ionic project by running the following commands in your project directory:
  
     ``ionic cap add android``
+    
+    This should add folder "android" to your project.
  
-3. Then build the Android app: ``ionic cap build android`` (do this every time you make changes)
+3. Then build the Android app: ``ionic cap build android`` (run this again after you make changes, you can add --watch to )
 
-    Android Studio should open. 
+    Android Studio should open. You might need to a new add device emulator.
 
 4. Press "Run 'app'" in the Android studio after the Gradle build is ready. You need to have an emulated device and the correct app selected.
 
@@ -58,10 +59,12 @@ Note: If you encounter any issues running your app, try running `ionic capacitor
 2. Add the iOS platform to your Ionic project by running the following commands in your project directory:
 
     ``ionic cap add ios``
-
+    
+    This should add folder "ios" to your project.
+    
 3. Then build the iOS app: ``ionic cap build ios`` (do this every time you make changes)
 
-4. Xcode should open. Select a simulator and press start in the Xcode. 
+4. Xcode should open. Select a simulator and press start in the Xcode.  You might need to add a new device simulator.
     Alternatively, you can run ``ionic cap run ios``
 
 Note: If you encounter any issues running your app, try running `ionic capacitor sync ios` to sync your iOS app.

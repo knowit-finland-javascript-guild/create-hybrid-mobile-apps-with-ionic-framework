@@ -77,7 +77,7 @@ To add a form for adding new ratings, follow these steps:
 1. Add an IonModal
 
 Take an example from this: https://stackblitz.com/edit/angular-pfw55s?file=src%2Fmain.tsx.
-Go to file "AddRatingForm.tsx" and add there [IonModal](https://ionicframework.com/docs/api/modal) that opens when the button is clicked. Add the following components to the modal:
+Open the file "src\components\AddRatingForm.tsx" and add there [IonModal](https://ionicframework.com/docs/api/modal) that opens when the button is clicked. Add the following components to the modal:
 Header, Toolbar, IonTittle "Add a new rating", IonButton "Close" that sets the isOpen to false, and IonContent.
 
 2. Add a form to save new ratings
@@ -115,14 +115,14 @@ Score input should have type "number", and add min=0 and max=5 attributes. Also,
 (Note that the register name should be "score")
 
 ## 2. View a rating
-1. Go to file App.tsx and add a route for path "/rating/:id", containing component ViewRating. Take an example from the home-path.
+1. Open the file "src\App.tsx" and add a route for path "/rating/:id", containing component ViewRating. Take an example from the home-path.
 https://ionicframework.com/docs/react/navigation#ionreactrouter
 
-2. In the RatingListItem.tsx file, add to the IonItem component a "routerLink" property with the value /rating/${rating.id}. This will create a link to the rating page.
+2. In the "src\components\RatingListItem.tsx" file, add to the IonItem component a "routerLink" property with the value /rating/${rating.id}. This will create a link to the rating page.
 
 Now you should be able to click rating items on the Home page, and you will be directed to a rating page.
 
-3. To make it easy to navigate back to the Home page, add an IonBackButton component to the ViewRating.tsx file. Follow this example:
+3. To make it easy to navigate back to the Home page, add an IonBackButton component to the "src\pages\ViewRating.tsx" file. Follow this example:
 [IonBackButton](https://ionicframework.com/docs/api/back-button#basic-usage) (Select React and src/page-two.tsx)
 
 
